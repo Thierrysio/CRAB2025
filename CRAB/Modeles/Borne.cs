@@ -14,7 +14,6 @@ namespace CRAB.Modeles
         private int _indiceCompteurUnites;
 
         private TypeBorne _leType;   // relation (à setter après)
-        private Station _laStation;  // relation (à setter après)
         #endregion
 
         #region Constructeurs
@@ -25,7 +24,6 @@ namespace CRAB.Modeles
             _dateDerniereRevision = dateDerniereRevision;
             _indiceCompteurUnites = indiceCompteur;
             _leType = null;      // sera renseigné via setter
-            _laStation = null;   // sera renseigné via setter
         }
         #endregion
 
@@ -35,7 +33,6 @@ namespace CRAB.Modeles
         public int IndiceCompteurUnites { get => _indiceCompteurUnites; set => _indiceCompteurUnites = value; }
 
         public TypeBorne LeTypeBorne { get => _leType; set => _leType = value; }
-        public Station LaStation { get => _laStation; set => _laStation = value; }
         #endregion
 
         #region Methodes

@@ -35,7 +35,29 @@ namespace CRAB.Modeles
         #endregion
 
         #region Methodes
-        // (À compléter plus tard)
+        public Visite GetVisiteAFaire()
+        {
+            List<Borne> bornesAReviser = new List<Borne>();
+            int totalVisite = 0;
+            foreach (Borne maborne in this.LesBornes)
+            {
+                if (maborne.estAReviser())
+                {
+                    bornesAReviser.Add(maborne);
+                    totalVisite += maborne.LeTypeBorne.DureeRevisionMinutes;
+                }
+            }
+
+            if (bornesAReviser.Count == 0)
+            {
+                return null; // aucune visite à créer
+            }
+            else
+            {
+                // On crée une visite "programmée"
+                return new Visite( this,EtatVisite.Programmee, totalVisite, bornesAReviser);
+            }
+        }
         #endregion
     }
 }

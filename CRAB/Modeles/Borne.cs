@@ -36,7 +36,19 @@ namespace CRAB.Modeles
         #endregion
 
         #region Methodes
-        // À compléter plus tard
+        public bool estAReviser()
+        {
+            bool resultat = false;
+
+            TimeSpan difference = DateTime.Now - this.DateDerniereRevision;
+            if (difference.Days>=this.LeTypeBorne.NbJoursEntreRevisions || this.IndiceCompteurUnites>=this.LeTypeBorne.NbUnitesEntreRevisions )
+            {
+                resultat = true;
+            }
+
+            return resultat;
+        }
+
         #endregion
     }
 }

@@ -13,6 +13,7 @@ namespace CRAB.Modeles
         #region Proprietes
         private EtatVisite _etat;
         private int _dureeTotale;
+        private Technicien _leTechnicien;
 
         private Station _laStation;        // relation (à setter après)
         private List<Borne> _lesBornes;     // init interne (vide), on ajoutera ensuite ≥ 1
@@ -29,6 +30,23 @@ namespace CRAB.Modeles
             _laStation = null;                 // sera renseigné via setter
             _lesBornes = new List<Borne>();     // 1..* -> on commence vide
         }
+
+        public Visite(EtatVisite etat, int dureetotale,List<Borne> bornesareviser)
+        {
+            _etat = etat;
+            _dureeTotale = dureetotale;
+
+            _laStation = null;                 // sera renseigné via setter
+            _lesBornes = bornesareviser;     // 1..* -> on commence vide
+        }
+        public Visite(Station laStation ,EtatVisite etat, int dureetotale, List<Borne> bornesareviser)
+        {
+            _etat = etat;
+            _dureeTotale = dureetotale;
+
+            _laStation = laStation;                 // sera renseigné via setter
+            _lesBornes = bornesareviser;     // 1..* -> on commence vide
+        }
         #endregion
 
         #region Getters/Setters
@@ -37,10 +55,17 @@ namespace CRAB.Modeles
 
         public Station LaStation { get => _laStation; set => _laStation = value; }
         public List<Borne> LesBornes { get => _lesBornes; set => _lesBornes = value; }
+        public Technicien LeTechnicien { get => _leTechnicien; set => _leTechnicien = value; }
         #endregion
 
         #region Methodes
-        // À compléter plus tard
+        
+        public void Affecter(Technicien unTechnicien) 
+        { 
+            this.LeTechnicien = unTechnicien;
+            unTechnicien.LesVisites.Add(this);
+            this.Etat = EtatVisite.Affectee;
+        }
         #endregion
     }
 }

@@ -31,7 +31,10 @@ namespace CRAB.Modeles
         #endregion
 
         #region Methodes
-        // À compléter plus tard
+        public void AffecterVisites()
+        {
+            
+        }
         #endregion
     }
 }

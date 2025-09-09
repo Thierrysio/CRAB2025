@@ -34,7 +34,21 @@ namespace CRAB.Modeles
         #endregion
 
         #region Methodes
-        // À compléter plus tard
+        public int GetChargeTotale()
+        {
+            int resultat = 0;
+            if (this.LesVisites != null)
+            {
+                foreach (Visite uneVisite in this.LesVisites)
+                {
+                    if (uneVisite != null)
+                    {
+                        resultat += uneVisite.DureeTotaleMinutes;
+                    }
+                }
+            }
+            return resultat;
+        }
         #endregion
     }
 }

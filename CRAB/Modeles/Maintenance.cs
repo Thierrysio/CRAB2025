@@ -33,7 +33,27 @@ namespace CRAB.Modeles
         #region Methodes
         public void AffecterVisites()
         {
-            
+            foreach(Visite uneVisite in this.LesVisites)
+            {
+                if(uneVisite.Etat == EtatVisite.Programmee) 
+                {
+                    Technicien unTechnicienMoinsOccupe = null;
+                    int uneChargeMin = int.MaxValue;
+
+                    foreach(Technicien unTechnicien in this.LesTechniciens)
+                    {
+                        int maChargeTotale = unTechnicien.GetChargeTotale();
+                        if(unTechnicienMoinsOccupe == null ||maChargeTotale< uneChargeMin)
+                        {
+                            uneChargeMin = maChargeTotale;
+                            unTechnicienMoinsOccupe = unTechnicien;
+                        }
+                    }
+                    uneVisite.Affecter(unTechnicienMoinsOccupe);
+                }
+                
+
+            }
         }
         #endregion
     }

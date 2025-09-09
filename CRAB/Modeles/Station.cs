@@ -21,7 +21,7 @@ namespace CRAB.Modeles
         {
             _idStation = id;
             _libelleEmplacement = libelle;
-            LesBornes =  new List<Borne>();
+            LesBornes = new List<Borne>();
         }
 
         #endregion
@@ -55,9 +55,47 @@ namespace CRAB.Modeles
             else
             {
                 // On crée une visite "programmée"
-                return new Visite( this,EtatVisite.Programmee, totalVisite, bornesAReviser);
+                return new Visite(this, EtatVisite.Programmee, totalVisite, bornesAReviser);
             }
         }
+
+        public int GetNbBornes()
+        {
+            int resultat = 0;
+            foreach (Borne uneBorne in this.LesBornes)
+            {
+                resultat++;
+            }
+
+            return resultat;
+        }
+        public int GetNbBornes2()
+        {
+            return this.LesBornes.Count;
+        }
+
+
+        public Dictionary<TypeBorne, int> GetNbTypeBorne()
+        {
+            Dictionary<TypeBorne, int> resultat = new Dictionary<TypeBorne, int>();
+            foreach (Borne uneBorne in this.LesBornes)
+            {
+
+                if (resultat.ContainsKey(uneBorne.LeTypeBorne))
+                {
+                    // On incrémente le compteur pour ce type déjà rencontré
+                    resultat[uneBorne.LeTypeBorne]++;
+                }
+                else
+                {
+                    // Premier passage pour ce type
+                    resultat.Add(uneBorne.LeTypeBorne, 1);
+                }
+
+            }
+            return resultat;
+        }
+
         #endregion
     }
 }

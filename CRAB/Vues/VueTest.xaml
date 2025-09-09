@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRAB.Vues.VueTest"
+             Title="VueTest">
+    <VerticalStackLayout>
+        <Label 
+            x:Name ="monLabel"
+            Text="Bonjour tout le monde"
+            
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label
+            
+          Text="hello"  
+            ></Label>
+    </VerticalStackLayout>
+</ContentPage>

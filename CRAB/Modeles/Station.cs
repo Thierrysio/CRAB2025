@@ -84,7 +84,7 @@ namespace CRAB.Modeles
                 if (resultat.ContainsKey(uneBorne.LeTypeBorne))
                 {
                     // On incrémente le compteur pour ce type déjà rencontré
-                    resultat[uneBorne.LeTypeBorne]++;
+                    resultat[uneBorne.LeTypeBorne] = resultat[uneBorne.LeTypeBorne] + 1;
                 }
                 else
                 {
